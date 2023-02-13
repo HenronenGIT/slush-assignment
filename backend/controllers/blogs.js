@@ -3,7 +3,8 @@ const router = express.Router()
 
 // Get all blogs
 router.get('/', (req, res) => {
-
+	res.send("hello world")
+	// const query = 'SELECT * FROM blogs;'
 })
 
 // Get single blog
@@ -20,3 +21,5 @@ router.delete('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
 
 })
+
+module.exports = router
