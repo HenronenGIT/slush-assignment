@@ -13,7 +13,6 @@ const start = async () => {
 	const port = process.env.PORT || 3001
 	await connectToDatabase()
 	await initializeDatabase()
-	// await insertMockData()
 	app.listen(port, () => {
 		console.log(`Server running at http://localhost:${port}`);
 	});
