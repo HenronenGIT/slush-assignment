@@ -1,35 +1,26 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import getOne from '../services/blogs'
+import blogService from '../services/blogs'
 
-// const BlogPost = ({ blogs }) => {
 const BlogPost = () => {
 	const [blog, setBlog] = useState({})
-	const { idToFind } = useParams();
+	const { id } = useParams();
+	useEffect(() => {
+		const fetchOneBlog = async () => {
+			try {
+				const fetchedBlog = await blogService.getOne(id)
+				setBlog(fetchedBlog)
+			}
+			catch (error) {
+				console.log(error)
+			}
+		}
+		fetchOneBlog();
+	}, [id])
 
-	// useEffect(() => {
-	// 	const fetchOne = async () => {
-
-	// 		try {
-	// 			const response = await getOne(idToFind)
-	// 			console.log(response)
-	// 			// setBlog(response)
-
-	// 		} catch (error) {
-	// 			console.log(error)
-	// 		}
-	// 	}
-	// 	fetchOne();
-	// }, [])
-
-	// if (!blogs) {
-	// return "temp"
-	// // }
-	// const blog = getOne(idToFind)
-	console.log(blog)
 	return (
 		<div className="container mt-3">
-			{/* <div className="card">
+			<div className="card">
 				<div className="card-body">
 					<h2 className="card-title">{blog.title}</h2>
 					<p className="card-text">{blog.content}</p>
@@ -37,7 +28,7 @@ const BlogPost = () => {
 				<div className="card-footer text-muted">
 					Created on: {blog.created_at}
 				</div>
-			</div> */}
+			</div>
 		</div>
 	);
 };

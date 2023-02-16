@@ -9,10 +9,20 @@ const getAll = async () => {
 const getOne = async (blogId) => {
 	try {
 		const response = await axios.get(`${baseUrl}/${blogId}`);
+		return response.data[0]
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+const getNewest = async () => {
+	try {
+		const response = await axios.get(`${baseUrl}/newest`);
 		return response.data;
 	} catch (error) {
 		console.error(error);
 	}
+
 }
 
 const create = async (newObject) => {
@@ -32,7 +42,8 @@ const services = {
 	getAll,
 	getOne,
 	create,
-	remove
+	remove,
+	getNewest
 }
 
 export default services

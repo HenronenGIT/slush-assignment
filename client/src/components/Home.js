@@ -1,27 +1,32 @@
-// import { BlogPost } from '../components/index.js'
-import {BlogCard} from '../components/index.js'
+import { useState, useEffect } from 'react';
+import { BlogCard } from '../components/index.js'
+import blogService from '../services/blogs'
+
 // import { Link } from 'react-router-dom';
 
 
 const Home = ({ blogs }) => {
+	const [newestBlog, setNewestBlog] = useState({})
 
-	const lastElement = (array) => {
-		const index = array[array.length - 1]
-		return (index)
-	}
+	useEffect(() => {
+		const fetchNewestBlog = async () => {
+			try {
+				const fetchedBlog = await blogService.getNewest()
+				setNewestBlog(fetchedBlog)
+			} catch (error) {
+				console.log("Error when tried to fetch newest blog")
+			}
+		}
+		fetchNewestBlog();
+	}, [])
 
-	const blog = lastElement(blogs);
-	console.log("blog", blog)
-	if (!blog) {
-		return null
-	}
 	return (
 		<div className="container mt-5">
 			<h1 className="mb-5">Most Recent Post</h1>
 			{/* <Link to={`/blog/${blog.id}`} className="text-decoration-none">
 				<BlogPost blog={blog}></BlogPost>
 			</Link> */}
-			<BlogCard blog={blog}></BlogCard>
+			<BlogCard blog={newestBlog}></BlogCard>
 			{/* <BlogPost blog={blog}></BlogPost> */}
 		</div>
 	);
