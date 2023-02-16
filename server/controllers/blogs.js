@@ -9,12 +9,34 @@ router.get('/', async (req, res) => {
 		const blogs = await pool.query(`SELECT * FROM blogs`)
 		res.status(200).send(blogs.rows)
 	}
-	catch (e) {
-		res.status(404).send({ 'error': 'error' })
+	catch (error) {
+		console.log(error)
+		res.status(500).send({
+			message: `Error fetching all blogs`,
+			error
+		});
 	}
 })
 
-//* GET single blog
+//* GET newest blog
+router.get('/newest', async (req, res) => {
+	try {
+		const newestdBlog = await pool.query(`
+			SELECT * FROM blogs
+			ORDER BY created_at DESC
+			LIMIT 1`)
+		res.status(200).send(newestdBlog.rows[0])
+	}
+	catch (error) {
+		console.log(error)
+		res.status(500).send({
+			message: `Error when trying to fetch newest blog`,
+			error
+		});
+	}
+})
+
+//* GET single blog with id
 router.get('/:id', async (req, res) => {
 	const { id } = req.params
 
@@ -22,10 +44,16 @@ router.get('/:id', async (req, res) => {
 		const fetchedBlog = await pool.query(`
 			SELECT *
 			FROM blogs
-			WHERE id = ${id}
+			WHERE id = $1
 			LIMIT 1;
-		`)
-		res.status(200).send(fetchedBlog.rows)
+		`, [id])
+		if (fetchedBlog.rowCount === 0) {
+			res.status(404).send({
+				message: `Did not find blog with an id of ${id}`
+			});
+		} else {
+			res.status(200).send(fetchedBlog.rows[0])
+		}
 	}
 	catch (error) {
 		res.status(500).send({
@@ -82,7 +110,7 @@ router.delete('/:id', async (req, res) => {
 	}
 })
 
-// PUT edit single blog
+//* PUT edit single blog
 // router.put('/:id', (req, res) => {
 
 // })

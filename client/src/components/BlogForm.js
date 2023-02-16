@@ -40,7 +40,7 @@ const BlogForm = () => {
 				</Form.Group>
 
 				<div className="text-center">
-					<Button variant="primary" type="submit">
+					<Button variant="primary" type="submit" style={{ marginTop: '10px' }}>
 						Submit
 					</Button>
 				</div>
