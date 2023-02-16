@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row } from 'react-bootstrap';
-import Blog from './Blog'
+import { BlogCard } from './index'
 import '../styles.css';
 
 const Blogs = ({ blogs }) => {
@@ -9,7 +9,7 @@ const Blogs = ({ blogs }) => {
 			<Row className="justify-content-center">
 				<h1 className="post-heading">POSTS</h1>
 				{blogs.map(blog =>
-					<Blog blog={blog} />
+					<BlogCard key={blog.id} blog={blog} />
 				)}
 			</Row>
 		</Container>

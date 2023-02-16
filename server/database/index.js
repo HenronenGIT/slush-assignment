@@ -28,14 +28,12 @@ const initializeDatabase = async () => {
 	// blogs table
 	pool.query(`
 	CREATE TABLE IF NOT EXISTS blogs (
-		id SERIAL,
+		id SERIAL PRIMARY KEY,
 		title VARCHAR(255) NOT NULL,
 		content TEXT NOT NULL,
 		description VARCHAR(255) NOT NULL,
-		created_at TIMESTAMP NOT NULL DEFAULT NOW()
+		created_at TIMESTAMP DEFAULT NOW()
 	  );`)
-
-	
 }
 
 module.exports = { connectToDatabase, initializeDatabase, pool }

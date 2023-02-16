@@ -39,22 +39,17 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
 	const { title, content, description } = req.body;
 
-	console.log(title, content, description)
 	try {
 		const insertedBlog = await pool.query(`
 			INSERT INTO blogs (title, description, content)
-			VALUES ('${title}', '${description}, '${content}')
-			RETURNING id, title, description, content, created_at
-		`);
+			VALUES ('${title}', '${description}', '${content}')
+			RETURNING id, title, description, content`);
 
 		res.status(200).send({
 			message: 'Blog successfully posted',
-			blog: {
-				id: insertedBlog.insertId,
-				title,
-				content
-			}
+			blog: { ...insertedBlog.rows }
 		});
+
 	} catch (error) {
 		res.status(500).send({
 			message: 'Error when tried to POST a blog',
@@ -88,8 +83,8 @@ router.delete('/:id', async (req, res) => {
 })
 
 // PUT edit single blog
-router.put('/:id', (req, res) => {
+// router.put('/:id', (req, res) => {
 
-})
+// })
 
 module.exports = router
