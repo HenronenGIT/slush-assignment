@@ -16,6 +16,7 @@ const App: React.FC = () => {
 			<Routes>
 				<Route path='*' element={<NotFound />} />
 				<Route path='/' element={<Home />} />
+				<Route path='/not_found' element={<NotFound />} />
 				<Route path='/blogs' element={<BlogGallery />} />
 				<Route path='/create' element={<BlogForm />} />
 				<Route path='/blogs/:id' element={<BlogPost />} />

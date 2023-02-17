@@ -15,6 +15,7 @@ interface Blog {
 const BlogPost: React.FC = () => {
 	const [blog, setBlog] = useState<Blog>({ id: 0, title: '', content: '', created_at: '' });
 	const { id } = useParams<{ id: string }>();
+
 	const navigate = useNavigate()
 
 	useEffect(() => {
@@ -22,6 +23,11 @@ const BlogPost: React.FC = () => {
 			try {
 				const fetchedBlog = await blogService.getOne(id)
 				setBlog(fetchedBlog)
+				if (fetchedBlog) {
+					setBlog(fetchedBlog)
+				} else {
+					navigate('/not_found')
+				}
 			}
 			catch (error) {
 				console.log(error)
@@ -38,7 +44,6 @@ const BlogPost: React.FC = () => {
 			console.log(error)
 		}
 	}
-
 	return (
 		<div className="container mt-3">
 			<div className="card">
