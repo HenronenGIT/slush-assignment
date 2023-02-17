@@ -16,7 +16,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
 	const navigate = useNavigate()
 
 	const handleNavigate = () => {
-		navigate(`/blog/${blog.id}`)
+		navigate(`/blogs/${blog.id}`)
 	}
 
 	return (
