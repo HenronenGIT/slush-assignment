@@ -9,7 +9,7 @@ const getAll = async () => {
 const getOne = async (blogId) => {
 	try {
 		const response = await axios.get(`${baseUrl}/${blogId}`);
-		return response.data[0]
+		return response.data
 	} catch (error) {
 		console.error(error);
 	}

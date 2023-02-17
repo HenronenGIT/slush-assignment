@@ -9,7 +9,9 @@ const BlogCard = ({ blog }) => {
 				<div className="card-body">
 					<h2 className="card-title">{blog.title}</h2>
 					<p className="card-text">{blog.description}</p>
-					<Button as={Link} to={`/blog/${blog.id}`}>Read More</Button>
+					<Link to={`/posts/blog/${blog.id}`}>
+						<Button>Read more</Button>
+					</Link>
 				</div>
 				<div className="card-footer text-muted">
 					Created on: {blog.created_at}

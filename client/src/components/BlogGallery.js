@@ -3,7 +3,7 @@ import blogService from '../services/blogs'
 import { Container, Row, Col, Form, FormControl } from 'react-bootstrap';
 import { BlogCard } from './index'
 
-const Blogs = () => {
+const BlogGallery = () => {
 	const [blogs, setBlogs] = useState([])
 	const [searchTerm, setSearchTerm] = useState('');
 
@@ -46,4 +46,4 @@ const Blogs = () => {
 	);
 }
 
-export default Blogs
+export default BlogGallery
