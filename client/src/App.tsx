@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import {
 	Home,
@@ -5,7 +6,7 @@ import {
 	BlogForm,
 	Navigation,
 	BlogPost
-} from './components/index.js'
+} from './components/index'
 
 const App = () => {
 

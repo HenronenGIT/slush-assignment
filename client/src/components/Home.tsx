@@ -1,9 +1,18 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
-import { BlogCard } from '../components/index.js'
 import blogService from '../services/blogs'
+import { BlogCard, BlogCardProps } from '../components/index'
 
-const Home = () => {
-	const [newestBlog, setNewestBlog] = useState({})
+// const Home = () => {
+const Home: React.FC = () => {
+	// const [newestBlog, setNewestBlog] = useState<BlogCardProps>({});
+
+	const [newestBlog, setNewestBlog] = useState({
+		id: 0,
+		title: '',
+		description: '',
+		created_at: ''
+	})
 
 	useEffect(() => {
 		const fetchNewestBlog = async () => {

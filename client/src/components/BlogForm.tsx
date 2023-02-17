@@ -1,8 +1,10 @@
+import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import blogService from '../services/blogs'
 
-const BlogForm = () => {
 
+// const BlogForm = () => {
+const BlogForm: React.FC = () => {
 	const handleSubmit = async (event) => {
 		try {
 			event.preventDefault();
