@@ -1,10 +1,11 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import blogService from '../services/blogs'
+import { useNavigate } from "react-router-dom";
 
 
-// const BlogForm = () => {
 const BlogForm: React.FC = () => {
+	const navigate = useNavigate()
 	const handleSubmit = async (event) => {
 		try {
 			event.preventDefault();
@@ -15,7 +16,7 @@ const BlogForm: React.FC = () => {
 			const content = form.content.value;
 			await blogService.create({ title, description, content }) //! notification could be added
 			form.reset();
-
+			navigate('/blogs')
 		} catch (error) {
 			console.log('Error')
 		}
