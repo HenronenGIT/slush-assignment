@@ -14,6 +14,7 @@ import BlogGallery from './BlogGallery';
 import BlogForm from './BlogForm';
 import Navigation from './Navigation';
 import BlogPost from './BlogPost';
+import NotFound from './NotFound'
 
 
 export type BlogCardProps = {
@@ -26,4 +27,4 @@ export type BlogCardProps = {
 };
 
 
-export { Home, BlogCard, BlogGallery, BlogForm, Navigation, BlogPost };
+export { Home, BlogCard, BlogGallery, BlogForm, Navigation, BlogPost, NotFound };

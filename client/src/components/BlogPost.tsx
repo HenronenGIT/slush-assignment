@@ -35,7 +35,7 @@ const BlogPost: React.FC = () => {
 		try {
 			const response = await blogService.remove(id)
 			console.log(response)
-			navigate('')
+			navigate('/')
 		} catch (error) {
 			console.log(error)
 		}

@@ -5,7 +5,8 @@ import {
 	BlogGallery,
 	BlogForm,
 	Navigation,
-	BlogPost
+	BlogPost,
+	NotFound
 } from './components/index'
 
 const App: React.FC = () => {
@@ -13,6 +14,7 @@ const App: React.FC = () => {
 		<div>
 			<Navigation />
 			<Routes>
+				<Route path='*' element={<NotFound />} />
 				<Route path='/' element={<Home />} />
 				<Route path='/blogs' element={<BlogGallery />} />
 				<Route path='/create' element={<BlogForm />} />
