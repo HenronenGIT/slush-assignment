@@ -9,18 +9,19 @@ const executeSqlFile = async (filePath) => {
 		const sql = fs.readFileSync(filePath).toString();
 		await pool.query(sql);
 		console.log(`Executed SQL file: ${filePath}`);
+		pool.end()
 	} catch (error) {
 		console.error(`Error executing SQL file: ${filePath}\n`, error);
 	}
-	//  finally {
-	// pool.end();
-	// }
 };
 
-connectToDatabase()
-	.then(() => {
-		executeSqlFile('./database/blog_seeds.sql');
-	})
-	.catch((error) => {
-		console.error(error);
-	});
+const seedDatabase = async () => {
+	try {
+		await connectToDatabase()
+		await executeSqlFile('./database/blog_seeds.sql')
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+seedDatabase()
