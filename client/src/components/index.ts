@@ -1,16 +1,16 @@
 // import Home from './Home'
 
 // import BlogCard from './BlogCard'
-// import Blogs from './Blogs'
+// import BlogGallery from './BlogGallery'
 // import BlogForm from './BlogForm'
 // import Navigation from './Navigation'
 // import BlogPost from './BlogPost'
 
-// export { Home, BlogCard, Blogs, BlogForm, Navigation, BlogPost};
+// export { Home, BlogCard, BlogGallery, BlogForm, Navigation, BlogPost};
 
 import Home from './Home';
 import BlogCard from './BlogCard';
-import Blogs from './Blogs';
+import BlogGallery from './BlogGallery';
 import BlogForm from './BlogForm';
 import Navigation from './Navigation';
 import BlogPost from './BlogPost';
@@ -26,4 +26,4 @@ export type BlogCardProps = {
 };
 
 
-export { Home, BlogCard, Blogs, BlogForm, Navigation, BlogPost };
+export { Home, BlogCard, BlogGallery, BlogForm, Navigation, BlogPost };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import {
 	Home,
-	Blogs,
+	BlogGallery,
 	BlogForm,
 	Navigation,
 	BlogPost
@@ -15,9 +15,9 @@ const App = () => {
 			<Navigation />
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route path='/posts' element={<Blogs />} />
+				<Route path='/blogs' element={<BlogGallery />} />
 				<Route path='/create' element={<BlogForm/>} />
-				<Route path='/blog/:id' element={<BlogPost />} />
+				<Route path='/blogs/:id' element={<BlogPost />} />
 			</Routes>
 		</div>
 	)

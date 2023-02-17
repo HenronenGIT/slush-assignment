@@ -20,7 +20,7 @@ const Navigation: React.FC = () => {
 						</Nav.Link>
 					</Nav.Item>
 					<Nav.Item>
-						<Nav.Link as={Link} to="/posts" className="nav-link">
+						<Nav.Link as={Link} to="/blogs" className="nav-link">
 							Posts
 						</Nav.Link>
 					</Nav.Item>

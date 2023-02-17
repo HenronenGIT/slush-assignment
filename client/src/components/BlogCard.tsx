@@ -18,12 +18,9 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
 				<div className="card-body">
 					<h2 className="card-title">{blog.title}</h2>
 					<p className="card-text">{blog.description}</p>
-					<Link to={`blog/${blog.id}`}>
+					<Link to={`blogs/${blog.id}`}>
 						<Button>Read more</Button>
 					</Link>
-					{/* <Button as={Link} to={`/blog/${blog.id}`}> */}
-					{/* Read More */}
-					{/* </Button> */}
 				</div>
 				<div className="card-footer text-muted">
 					Created on: {blog.created_at}
