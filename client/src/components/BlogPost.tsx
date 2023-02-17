@@ -1,5 +1,6 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
 import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap'
 import blogService from '../services/blogs'
@@ -11,12 +12,11 @@ interface Blog {
 	created_at: string;
 }
 
-// const BlogPost = () => {
 const BlogPost: React.FC = () => {
-	// const [blog, setBlog] = useState<Blog>({({ id: 0, title: '', content: '', created_at: '' });
-	// const { id } = useParams();
 	const [blog, setBlog] = useState<Blog>({ id: 0, title: '', content: '', created_at: '' });
 	const { id } = useParams<{ id: string }>();
+	const navigate = useNavigate()
+
 	useEffect(() => {
 		const fetchOneBlog = async () => {
 			try {
@@ -30,13 +30,25 @@ const BlogPost: React.FC = () => {
 		fetchOneBlog();
 	}, [id])
 
+	const handleDeleteBlog = async () => {
+		try {
+			const response = await blogService.remove(id)
+			console.log(response)
+			navigate('/')
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
 	return (
 		<div className="container mt-3">
 			<div className="card">
 				<div className="card-body">
 					<h2 className="card-title">{blog.title}</h2>
 					<p className="card-text">{blog.content}</p>
-					<Button>Delete</Button>
+					<Button variant="danger" onClick={handleDeleteBlog}>
+						Delete Blog
+					</Button>
 				</div>
 				<div className="card-footer text-muted">
 					Created on: {blog.created_at}

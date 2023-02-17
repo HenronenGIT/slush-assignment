@@ -1,4 +1,6 @@
 import axios from 'axios'
+
+
 const baseUrl = '/api/blogs'
 
 const getAll = async () => {
@@ -22,7 +24,6 @@ const getNewest = async () => {
 	} catch (error) {
 		console.error(error);
 	}
-
 }
 
 const create = async (newObject) => {

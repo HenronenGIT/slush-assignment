@@ -8,16 +8,15 @@ import {
 	BlogPost
 } from './components/index'
 
-const App = () => {
-
+const App: React.FC = () => {
 	return (
 		<div>
 			<Navigation />
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/blogs' element={<BlogGallery />} />
-				<Route path='/create' element={<BlogForm/>} />
-				<Route path='/blogs/:id' element={<BlogPost />} />
+				<Route path='/create' element={<BlogForm />} />
+				<Route path='/blog/:id' element={<BlogPost />} />
 			</Routes>
 		</div>
 	)

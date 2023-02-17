@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface BlogCardProps {
 	blog: {
@@ -12,21 +12,26 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
+
+	const navigate = useNavigate()
+
+	const handleNavigate = () => {
+		navigate(`/blog/${blog.id}`)
+	}
+
 	return (
 		<div className="container mt-3">
 			<div className="card">
 				<div className="card-body">
 					<h2 className="card-title">{blog.title}</h2>
 					<p className="card-text">{blog.description}</p>
-					<Link to={`blogs/${blog.id}`}>
-						<Button>Read more</Button>
-					</Link>
+					<Button onClick={handleNavigate}>Read more</Button>
 				</div>
 				<div className="card-footer text-muted">
 					Created on: {blog.created_at}
 				</div>
 			</div>
-		</div>
+		</div >
 	)
 }
 
