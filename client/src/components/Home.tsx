@@ -22,13 +22,15 @@ const Home: React.FC = () => {
 		}
 		fetchNewestBlog();
 	}, [])
-
 	return (
 		<div className="container mt-5">
 			<div className="card border-1 shadow">
 				<div className="card-body">
 					<h1 className="post-heading text-center mb-5">Most Recent Post</h1>
-					<BlogCard blog={newestBlog}></BlogCard>
+					{newestBlog
+						? <BlogCard blog={newestBlog} />
+						: <p>The calm before the storm...</p>
+					}
 				</div>
 			</div>
 		</div>

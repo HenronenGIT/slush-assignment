@@ -1,12 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import {
+	Navigation,
 	Home,
+	NotFound,
 	BlogGallery,
 	BlogForm,
-	Navigation,
-	BlogPost,
-	NotFound
+	BlogPost
 } from './components/index'
 
 const App: React.FC = () => {
