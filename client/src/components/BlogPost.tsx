@@ -33,7 +33,6 @@ const BlogPost: React.FC = () => {
 	const handleDeleteBlog = async () => {
 		try {
 			const response = await blogService.remove(id)
-			console.log(response)
 			navigate('/')
 		} catch (error) {
 			console.log(error)

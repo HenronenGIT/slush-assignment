@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 
-// const Navigation = () => {
 const Navigation: React.FC = () => {
 	return (
 		<Navbar bg="dark" variant="dark" expand="lg" sticky="top">
