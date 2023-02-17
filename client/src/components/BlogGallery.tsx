@@ -4,7 +4,7 @@ import blogService from '../services/blogs'
 import { Container, Row, Col, Form, FormControl } from 'react-bootstrap';
 import { BlogCard } from './index'
 
-const BlogGallery = () => {
+const BlogGallery: React.FC = () => {
 	const [blogs, setBlogs] = useState([])
 	const [searchTerm, setSearchTerm] = useState('');
 
@@ -12,7 +12,9 @@ const BlogGallery = () => {
 		const fetchAll = async () => {
 			try {
 				const fetchedBlogs = await blogService.getAll()
+				fetchedBlogs.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 				setBlogs(fetchedBlogs)
+
 			} catch (error) {
 				console.log("Error when tried to fetch newest blog")
 			}

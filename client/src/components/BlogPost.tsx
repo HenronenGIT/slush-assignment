@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+// import { useNavigate } from "react-router-dom";
 
 import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap'
@@ -34,7 +35,7 @@ const BlogPost: React.FC = () => {
 		try {
 			const response = await blogService.remove(id)
 			console.log(response)
-			navigate('/')
+			navigate('')
 		} catch (error) {
 			console.log(error)
 		}
