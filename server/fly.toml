@@ -1,6 +1,6 @@
-# fly.toml file generated for slush-db on 2023-02-13T09:43:43+02:00
+# fly.toml file generated for slush-blog on 2023-02-18T16:15:08+02:00
 
-app = "slush-db"
+app = "slush-blog"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []

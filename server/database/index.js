@@ -1,16 +1,20 @@
-// const { Client } = require('pg')
 const { Pool } = require('pg')
-// const { sql } = require('pg')
 
-const { HOST, DATABASE_USER, PORT, DATABASE_PASSWORD, DATABASE_URL } = require('../util/config')
+const {
+	DB_NAME,
+	DB_HOST,
+	DB_USER,
+	DB_PORT,
+	DB_PASSWORD,
+	DB_URL } = require('../util/config')
 
 const pool = new Pool({
-	host: HOST,
-	port: PORT,
-
-	user: DATABASE_USER,
-	password: DATABASE_PASSWORD,
-	connectionString: DATABASE_URL,
+	database: DB_NAME,
+	host: DB_HOST,
+	port: DB_PORT,
+	user: DB_USER,
+	password: DB_PASSWORD,
+	connectionString: DB_URL,
 })
 
 const connectToDatabase = async () => {
