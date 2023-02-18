@@ -8,12 +8,13 @@
     "dev": "nodemon index.js",
     "proxy": "flyctl proxy 5432 -a slush-db",
     "connect": "flyctl postgres connect slush-db",
-	"seed": "node database/seed.js"
+    "seed": "node database/seed.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "eslint": "^8.34.0",
     "express": "^4.18.2",
