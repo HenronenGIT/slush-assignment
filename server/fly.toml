@@ -1,4 +1,4 @@
-# fly.toml file generated for slush-blog on 2023-02-18T16:15:08+02:00
+# fly.toml file generated for slush-blog on 2023-02-18T16:59:56+02:00
 
 app = "slush-blog"
 kill_signal = "SIGINT"
