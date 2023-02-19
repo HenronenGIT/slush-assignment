@@ -30,3 +30,11 @@
 `POST /blogs`
 
 `DELETE /blogs`
+
+## Preview
+
+![](./README/home_page.jpg)
+
+![](./README/gallery.jpg)
+
+![](./README/create_new.jpg)
