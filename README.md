@@ -28,8 +28,18 @@
 
 ## Preview
 
+### Landing page
+
 ![](./README/home_page.jpg)
+
+### Gallery
 
 ![](./README/gallery.jpg)
 
+### Create New
+
 ![](./README/create_new.jpg)
+
+### Create New
+
+![](./README/blog.jpg)
