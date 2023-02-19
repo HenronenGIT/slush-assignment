@@ -5,13 +5,8 @@
 
 ### Server / Backend
 
-1. `npm run proxy` - flyctl.io database needs this proxy
-2. `npm run dev` - Start backend API
-3. `npm run seed` - Seeds the database with example blogs
-
-#### Extra commands
-
-`npm run connect` - Connects to the database
+1. `npm run dev` - Start backend API
+2. `npm run seed` - Seeds the database with example blogs
 
 ### Client / Frontend
 
