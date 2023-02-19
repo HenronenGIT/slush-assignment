@@ -4,15 +4,15 @@ const { connectToDatabase, initializeDatabase } = require('./database/index')
 const cors = require('cors')
 const blogsRouter = require('./controllers/blogs')
 
-require('dotenv').config()
 
+require('dotenv').config()
 app.use(cors())
 app.use(express.json())
 app.use(express.static('build'))
 app.use('/api/blogs', blogsRouter)
 
 const start = async () => {
-	const port = process.env.APP_PORT || 3001
+	const port = 3001
 	await connectToDatabase()
 	await initializeDatabase()
 	app.listen(port, () => {

@@ -10,11 +10,11 @@ const {
 
 const pool = new Pool({
 	database: 'railway',
-	host: 'containers-us-west-73.railway.app',
-	port: 6755,
+	host: 'containers-us-west-191.railway.app',
+	port: 6172,
 	user: 'postgres',
-	password: '4hu32amVpocZ1KkKPcoS',
-	connectionString: 'postgresql://postgres:4hu32amVpocZ1KkKPcoS@containers-us-west-73.railway.app:6755/railway',
+	password: '3UG5EmIbMsYruzGCWbbD',
+	connectionString: 'postgresql://postgres:3UG5EmIbMsYruzGCWbbD@containers-us-west-191.railway.app:6172/railway',
 	// database: DB_NAME,
 	// host: DB_HOST,
 	// port: DB_PORT,
