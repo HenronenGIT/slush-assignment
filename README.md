@@ -40,6 +40,6 @@
 
 ![](./README/create_new.jpg)
 
-### Create New
+### Blog
 
 ![](./README/blog.jpg)
