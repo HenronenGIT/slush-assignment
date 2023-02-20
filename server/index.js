@@ -12,11 +12,12 @@ app.use(express.static('build'))
 app.use('/api/blogs', blogsRouter)
 
 const start = async () => {
-	const port = 3001
+	// const port = 3001
+	const PORT = process.env.PORT || 3001
 	await connectToDatabase()
 	await initializeDatabase()
-	app.listen(port, () => {
-		console.log(`Server running at http://localhost:${port}`);
+	app.listen(PORT, () => {
+		console.log(`Server running at http://localhost:${PORT}`);
 	});
 }
 
