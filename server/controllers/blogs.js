@@ -67,17 +67,17 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
 	const { title, content, description } = req.body;
 
+	//! regex check for length
 	try {
 		const insertedBlog = await pool.query(`
 			INSERT INTO blogs (title, description, content)
-			VALUES ('${title}', '${description}', '${content}')
-			RETURNING id, title, description, content`);
-
+			VALUES ($1, $2, $3)
+			RETURNING id, title, description, content`,
+			[title, description, content]);
 		res.status(200).send({
 			message: 'Blog successfully posted',
 			blog: { ...insertedBlog.rows }
 		});
-
 	} catch (error) {
 		res.status(500).send({
 			message: 'Error when tried to POST a blog',
@@ -94,7 +94,7 @@ router.delete('/:id', async (req, res) => {
 		const deletedBlog = await pool.query(`
 			DELETE FROM blogs
 			WHERE id = ${id};
-		`)
+		`, id)
 		if (deletedBlog.rowCount === 0) {
 			res.status(404).send({
 				message: `Did not find blog with an id of ${id}`

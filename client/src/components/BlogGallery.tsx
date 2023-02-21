@@ -9,18 +9,29 @@ const BlogGallery: React.FC = () => {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
-		const fetchAll = async () => {
-			try {
-				const fetchedBlogs = await blogService.getAll()
-				fetchedBlogs.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
-				setBlogs(fetchedBlogs)
+		// // const fetchAll = async () => {
+		// 	try {
+		// 		const fetchedBlogs = await blogService.getAll()
+		// 		fetchedBlogs.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+		// 		setBlogs(fetchedBlogs)
 
-			} catch (error) {
-				console.log("Error when tried to fetch newest blog")
-			}
-		}
+		// 	} catch (error) {
+		// 		console.log("Error when tried to fetch newest blog")
+		// 	}
+		// // }
 		fetchAll();
 	}, [])
+
+	const fetchAll = async () => {
+	try {
+		const fetchedBlogs = await blogService.getAll()
+		fetchedBlogs.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+		setBlogs(fetchedBlogs)
+
+	} catch (error) {
+		console.log("Error when tried to fetch newest blog")
+	}
+	}
 
 	const filteredBlogs = blogs.filter(blog => blog.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
