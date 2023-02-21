@@ -89,12 +89,11 @@ router.post('/', async (req, res) => {
 //* DELETE single blog
 router.delete('/:id', async (req, res) => {
 	const { id } = req.params
-
 	try {
 		const deletedBlog = await pool.query(`
 			DELETE FROM blogs
-			WHERE id = ${id};
-		`, id)
+			WHERE id = $1;
+		`, [id])
 		if (deletedBlog.rowCount === 0) {
 			res.status(404).send({
 				message: `Did not find blog with an id of ${id}`
@@ -103,6 +102,7 @@ router.delete('/:id', async (req, res) => {
 			res.status(204).send({ message: `Deleted rows ${deletedBlog.rowCount}` }); //! Why not sending message
 		}
 	} catch (error) {
+		console.log(error)
 		res.status(404).send({
 			message: 'Error when when trying to delete a blog',
 			error
