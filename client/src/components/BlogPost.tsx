@@ -5,16 +5,12 @@ import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap'
 import blogService from '../services/blogs'
 
-interface Blog {
-	id: number;
-	title: string;
-	content: string;
-	created_at: string;
-}
+// import { blogObject } from '../ts/interfaces/app_interfaces'
 
 const BlogPost: React.FC = () => {
-	const [blog, setBlog] = useState<Blog>({ id: 0, title: '', content: '', created_at: '' });
-	const { id } = useParams<{ id: string }>();
+	// const [blog, setBlog] = useState<blogObject>({ id: 0, title: '', description: '', content: '', created_at: '' });
+	const [blog, setBlog] = useState({ id: 0, title: '', description: '', content: '', created_at: '' });
+	const { id }: { id?: string } = useParams();
 
 	const navigate = useNavigate()
 
@@ -34,11 +30,11 @@ const BlogPost: React.FC = () => {
 			}
 		}
 		fetchOneBlog();
-	}, [id])
+	}, [id, navigate])
 
 	const handleDeleteBlog = async () => {
 		try {
-			// const response = await blogService.remove(id) //* Notification
+			//TODO Notification
 			await blogService.remove(id)
 			navigate('/')
 		} catch (error) {

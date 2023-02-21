@@ -3,19 +3,22 @@ import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import blogService from '../services/blogs'
 
+type BlogFormValues = {
+	title: string;
+	description: string;
+	content: string;
+};
+
 
 const BlogForm: React.FC = () => {
 	const navigate = useNavigate()
-	const handleSubmit = async (event) => {
+	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		try {
 			event.preventDefault();
-			const form = event.target;
-
-			const title = form.title.value;
-			const description = form.description.value;
-			const content = form.content.value;
-			await blogService.create({ title, description, content }) //! notification could be added
-			form.reset();
+			const { title, description, content } = event.currentTarget.elements as unknown as BlogFormValues;
+			//TODO Notification
+			await blogService.create({ title, description, content })
+			// orm.reset();
 			navigate('/blogs')
 		} catch (error) {
 			console.log('Error')

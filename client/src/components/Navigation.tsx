@@ -10,7 +10,7 @@ const Navigation: React.FC = () => {
 			<Navbar.Brand as={Link} to="/" style={{ marginLeft: "20px" }}>
 				Henri Maronen
 			</Navbar.Brand>
-			<Navbar.Toggle aria-controls="navbar-nav" />
+ 			<Navbar.Toggle aria-controls="navbar-nav" />
 			<Navbar.Collapse id="navbar-nav">
 				<Nav className="ml-auto">
 					<Nav.Item >

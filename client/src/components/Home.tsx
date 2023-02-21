@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import blogService from '../services/blogs'
 import { BlogCard } from '../components/index'
+import { blogObject } from '../ts/interfaces/app_interfaces';
 
 const Home: React.FC = () => {
 	const [newestBlog, setNewestBlog] = useState({

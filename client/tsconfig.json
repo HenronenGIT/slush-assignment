@@ -5,8 +5,9 @@
 	  "jsx": "react-jsx",
 	  "module": "commonjs",
 	  "esModuleInterop": true,
-	  "sourceMap": true
+	  "sourceMap": true,
+	  "strict": true,
 	},
 	"include": ["src/**/*"],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules"],
   }
