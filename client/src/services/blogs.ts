@@ -1,5 +1,4 @@
 import axios from 'axios'
-// import { blogObject } from '../ts/interfaces/app_interfaces'
 
 const baseUrl = '/api/blogs'
 
@@ -33,7 +32,6 @@ const getNewest = async () => {
 }
 
 const create = async (newObject: blogObject) => {
-	console.log(newObject)
 	const response = await axios.post(baseUrl, newObject)
 	return response.data
 }

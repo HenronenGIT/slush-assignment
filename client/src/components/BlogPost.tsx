@@ -5,10 +5,7 @@ import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap'
 import blogService from '../services/blogs'
 
-// import { blogObject } from '../ts/interfaces/app_interfaces'
-
 const BlogPost: React.FC = () => {
-	// const [blog, setBlog] = useState<blogObject>({ id: 0, title: '', description: '', content: '', created_at: '' });
 	const [blog, setBlog] = useState({ id: 0, title: '', description: '', content: '', created_at: '' });
 	const { id }: { id?: string } = useParams();
 

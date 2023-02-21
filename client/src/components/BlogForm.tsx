@@ -18,8 +18,8 @@ const BlogForm: React.FC = () => {
 			const { title, description, content } = event.currentTarget.elements as unknown as BlogFormValues;
 			//TODO Notification
 			await blogService.create({ title, description, content })
-			// orm.reset();
 			navigate('/blogs')
+			event.currentTarget.reset();
 		} catch (error) {
 			console.log('Error')
 		}
