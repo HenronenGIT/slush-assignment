@@ -1,5 +1,6 @@
 # Slush Pre-Assignment - Blog
 
+**NOTE: This application was done in limited timeframe, given by Slush. Timelimit was 12 hours**
 
 ## How to use
 
